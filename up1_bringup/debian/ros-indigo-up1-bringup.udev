@@ -1,0 +1,3 @@
+# Udev rules to make sure the identical USB cameras are reliably enumerated based on which ports they are plugged into.
+KERNEL=="video*", KERNELS=="1-1.3", NAME="video0"
+KERNEL=="video*", KERNELS=="1-1.4", NAME="video1"
