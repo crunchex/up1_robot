@@ -1,0 +1,5 @@
+<launch>
+   <node name="teleop_arm_joy" pkg="teleop_up1" type="teleop_arm_joy.py" output="screen">
+      <rosparam file="$(find teleop_up1)/config/arm_poses.yaml" command="load" />
+   </node>
+</launch>

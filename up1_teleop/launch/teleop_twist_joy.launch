@@ -1,0 +1,7 @@
+<launch>
+  <arg name="joy_config" default="xbox" />
+
+  <node name="teleop_twist_joy" pkg="teleop_up1" type="teleop_twist_joy.py">
+    <rosparam command="load" file="$(find teleop_up1)/config/$(arg joy_config).config.yaml" />
+  </node>
+</launch>

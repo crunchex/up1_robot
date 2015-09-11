@@ -1,0 +1,28 @@
+<launch>
+   <node name="arduino_bridge" pkg="ros_arduino_python" type="arduino_node.py" output="screen">
+      <rosparam file="$(find ros_arduino_python)/config/arduino_params.yaml" command="load" />
+   </node>
+   
+   <node name="right_gripper_controller" pkg="ros_arduino_python" type="gripper_controller.py" output="screen">
+      <param name="model" value="parallel"/>
+      <param name="joint_name" value="right_gripper_joint"/>
+      <param name="gripper_width_m" value="0.036"/>
+      <param name="gripper_width_deg" value="135.0"/>
+   </node>
+   
+   <node name="left_gripper_controller" pkg="ros_arduino_python" type="gripper_controller.py" output="screen">
+      <param name="model" value="parallel"/>
+      <param name="joint_name" value="left_gripper_joint"/>
+      <param name="gripper_width_m" value="0.036"/>
+      <param name="gripper_width_deg" value="135.0"/>
+   </node>
+
+   <node name="teleop_arm_joy" pkg="teleop_up1" type="teleop_arm_joy.py" output="screen">
+      <rosparam file="$(find teleop_up1)/config/arm_poses.yaml" command="load" />
+   </node>
+
+   <arg name="joy_config" default="xbox" />
+   <node name="teleop_twist_joy" pkg="teleop_up1" type="teleop_twist_joy.py">
+     <rosparam command="load" file="$(find teleop_up1)/config/$(arg joy_config).config.yaml" />
+   </node>
+</launch>

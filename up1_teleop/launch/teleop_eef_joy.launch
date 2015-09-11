@@ -1,0 +1,4 @@
+<launch>
+   <include file="$(find up1_moveit_config)/launch/demo.launch" />
+   <node name="teleop_eef_joy" pkg="teleop_up1" type="teleop_eef_joy.py" output="screen" />
+</launch>

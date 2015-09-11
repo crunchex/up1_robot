@@ -1,0 +1,3 @@
+<launch>
+   <node name="joy_cmdr" pkg="teleop_up1" type="cmdr_joy.py" output="screen" />
+</launch>
