@@ -1,0 +1,6 @@
+<launch>
+  <node name="web_video_server" pkg="web_video_server" type="web_video_server" >
+    <param name="width" value="320" />
+    <param name="height" value="240" />
+  </node>
+</launch>
