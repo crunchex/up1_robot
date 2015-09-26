@@ -4,8 +4,8 @@ Robot ROS packages for the UpDroid UP1-Series, for operating robot hardware.
 
 # Packages #
 
- - up1_bringup : Bringup launch files and scripts.
- - up1_base : Hardware driver for communicating with the onboard MCU. (TODO)
+ - up1_bringup : Bringup (installation and first-time setup) launch files and scripts.
+ - up1_hardware : Controllers, drivers, and interfaces to the UP1 hardware modules.
 
 # Other #
 
