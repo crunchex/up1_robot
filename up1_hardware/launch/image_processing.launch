@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<launch>
+  <group ns="stereo">
+    <node name="stereo_image_proc" pkg="stereo_image_proc" type="stereo_image_proc">
+      <param name="approximate_sync" value="true" />
+      <param name="min_disparity" value="13" />
+      <param name="disparity_range" value="32" />
+      <param name="uniqueness_ratio" value="15" />
+      <param name="texture_threshold" value="10" />
+      <param name="speckle_size" value="300" />
+      <param name="speckle_range" value="4" />
+    </node>
+  </group>
+</launch>
