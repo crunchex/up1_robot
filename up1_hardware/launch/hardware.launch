@@ -1,11 +1,13 @@
 <?xml version="1.0"?>
 <launch>
+  <!-- Robot description -->
   <include file="$(find up1_description)/launch/description.launch">
     <arg name="base_module" value="base" />
     <arg name="manipulator_module" value="dual_arm" />
     <arg name="io_module" value="io" />
   </include>
 
+  <!-- Robot control information -->
   <node name="arduino_bridge" pkg="ros_arduino_python" type="arduino_node.py" output="screen">
     <rosparam file="$(find ros_arduino_python)/config/arduino_params.yaml" command="load" />
   </node>
@@ -23,4 +25,9 @@
     <param name="gripper_width_m" value="0.036"/>
     <param name="gripper_width_deg" value="135.0"/>
   </node>
+
+  <!-- Launch moveit for arm -->
+  <!-- <include file="$(find up1_moveit_config)/launch/move_group.launch">
+    <arg name="debug" default="$(arg debug)" />
+  </include> -->
 </launch>
