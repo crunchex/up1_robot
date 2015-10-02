@@ -27,7 +27,7 @@
   </node>
 
   <!-- Launch moveit for arm -->
-  <!-- <include file="$(find up1_moveit_config)/launch/move_group.launch">
+  <include file="$(find up1_moveit_config)/launch/move_group.launch">
     <arg name="debug" default="$(arg debug)" />
-  </include> -->
+  </include>
 </launch>
