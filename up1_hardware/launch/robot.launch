@@ -13,6 +13,11 @@
   <!-- Start up the hardware drivers and controllers -->
   <include file="$(find up1_hardware)/launch/hardware.launch" />
 
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <param name="/use_gui" value="false"/>
+    <rosparam param="/source_list">[/joint_states]</rosparam>
+  </node>
+
   <!-- Launch moveit for arm -->
   <!-- <include file="$(find up1_moveit_config)/launch/move_group.launch">
     <arg name="debug" value="$(arg debug)" />
