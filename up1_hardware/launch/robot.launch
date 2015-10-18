@@ -6,7 +6,7 @@
   <!-- Robot description -->
   <include file="$(find up1_description)/launch/description.launch">
     <arg name="base_module" value="base" />
-    <arg name="manipulator_module" value="dual_arm" />
+    <arg name="manipulator_module" value="mono_arm" />
     <arg name="io_module" value="io" />
   </include>
 
@@ -27,5 +27,5 @@
   <include if="$(arg image_proc)" file="$(find up1_hardware)/launch/image_processing.launch" />
 
   <!-- Web video server -->
-  <include file="$(find up1_hardware)/launch/web_video_server.launch" />
+  <!-- <include file="$(find up1_hardware)/launch/web_video_server.launch" /> -->
 </launch>

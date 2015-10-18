@@ -8,17 +8,17 @@
   <!-- Gripper controllers -->
   <node name="right_gripper_controller" pkg="ros_arduino_python" type="gripper_controller.py" output="screen">
     <param name="model" value="parallel"/>
-    <param name="joint_name" value="right_gripper_joint"/>
+    <param name="joint_name" value="right_finger_joint"/>
     <param name="gripper_width_m" value="0.036"/>
     <param name="gripper_width_deg" value="135.0"/>
   </node>
   <node name="left_gripper_controller" pkg="ros_arduino_python" type="gripper_controller.py" output="screen">
     <param name="model" value="parallel"/>
-    <param name="joint_name" value="left_gripper_joint"/>
+    <param name="joint_name" value="left_finger_joint"/>
     <param name="gripper_width_m" value="0.036"/>
     <param name="gripper_width_deg" value="135.0"/>
   </node>
 
   <!-- Camera driver setup -->
-  <include file="$(find up1_hardware)/launch/usb_cam.launch" />
+  <!-- <include file="$(find up1_hardware)/launch/usb_cam.launch" /> -->
 </launch>
