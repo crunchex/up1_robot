@@ -2,7 +2,7 @@
 <launch>
   <!-- Arduino controller -->
   <node name="arduino_bridge" pkg="ros_arduino_python" type="arduino_node.py" output="screen">
-    <rosparam file="$(find ros_arduino_python)/config/arduino_params.yaml" command="load" />
+    <rosparam file="$(find ros_arduino_python)/config/mono_arm.yaml" command="load" />
   </node>
 
   <!-- Gripper controllers -->
