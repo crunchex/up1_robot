@@ -9,17 +9,17 @@
 internet_conn=1
 ap_mode=1
 
-ping -c3 www.google.com > /dev/null
-if [ $? != 0 ]; then
+ping -c3 www.google.com >> /dev/null 2>&1
+if [[ $? != 0 ]]; then
   internet_conn=0
 fi
 
-if [[ $(hostname -I) != "192.168.42.1" ]]; then
+if [ $(hostname -I) != "192.168.42.1" ]; then
   ap_mode=0
 fi
 
 if [[ internet_conn -eq 0 && ap_mode -eq 0 ]]; then
-  echo "No internet connection, restarting wlan0 in AP mode"
+  echo "Restarting wlan0 in AP mode"
   up1-hostapd
 fi
 
