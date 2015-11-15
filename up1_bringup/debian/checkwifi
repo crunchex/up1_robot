@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+# Add the following line to /etc/rc.local to check wifi on startup.
+#su root -c 'checkwifi'
+
+# Add the following to cron via "sudo crontab -e" to check wifi every 1 minute.
+#* * * * * su root -c 'checkwifi' >> /dev/null 2>&1
+
+internet_conn=1
+ap_mode=1
+
+ping -c3 www.google.com > /dev/null
+if [ $? != 0 ]; then
+  internet_conn=0
+fi
+
+if [[ $(hostname -I) != "192.168.42.1" ]]; then
+  ap_mode=0
+fi
+
+if [[ internet_conn -eq 0 && ap_mode -eq 0 ]]; then
+  echo "No internet connection, restarting wlan0 in AP mode"
+  up1-hostapd
+fi
+

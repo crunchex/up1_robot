@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+echo Bringing down networking...
+/etc/init.d/networking stop
+
+echo Reconfiguring network interfaces...
+echo > /etc/network/interfaces
+
+echo auto lo >> /etc/network/interfaces
+echo iface lo inet loopback >> /etc/network/interfaces
+echo >> /etc/network/interfaces
+echo auto wlan0 >> /etc/network/interfaces
+echo allow-hotplug wlan0 >> /etc/network/interfaces
+echo iface wlan0 inet static >> /etc/network/interfaces
+echo "    address 192.168.42.1" >> /etc/network/interfaces
+echo "    netmask 255.255.255.0" >> /etc/network/interfaces
+echo >> /etc/network/interfaces
+
+echo Enabling and starting hostapd...
+sed -i -e 's/^#DAEMON_CONF=/DAEMON_CONF=/g' /etc/default/hostapd
+/etc/init.d/hostapd start
+

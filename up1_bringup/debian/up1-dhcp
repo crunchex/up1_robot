@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+echo Reconfiguring network interfaces...
+echo > /etc/network/interfaces
+
+echo auto lo >> /etc/network/interfaces
+echo iface lo inet loopback >> /etc/network/interfaces
+echo >> /etc/network/interfaces
+echo auto wlan0 >> /etc/network/interfaces
+echo allow-hotplug wlan0 >> /etc/network/interfaces
+echo iface wlan0 inet dhcp >> /etc/network/interfaces
+echo "    wpa-ssid $1" >> /etc/network/interfaces
+echo "    wpa-psk $2" >> /etc/network/interfaces
+echo >> /etc/network/interfaces
+
+echo Stopping and disabling hostapd..
+/etc/init.d/hostapd stop
+sed -i -e 's/^DAEMON_CONF=/#DAEMON_CONF=/g' /etc/default/hostapd
+
+sleep 1
+
+echo Restarting networking...
+/etc/init.d/networking restart
+
