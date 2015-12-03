@@ -9,3 +9,4 @@
 KERNEL=="video*", ATTR{name}=="VGA USB Camera", KERNELS=="1-1.3", SYMLINK="cam_left"
 KERNEL=="video*", ATTR{name}=="VGA USB Camera", KERNELS=="1-1.4", SYMLINK="cam_right"
 SUBSYSTEM=="tty", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6001", ATTRS{serial}=="A7006SJz", SYMLINK+="arduino"
+SUBSYSTEM=="tty", ATTRS{idVendor}=="2a03", ATTRS{idProduct}=="0042", ATTRS{serial}=="75439313737351E0E191", SYMLINK+="arduino"
