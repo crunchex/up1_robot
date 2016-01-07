@@ -20,5 +20,5 @@
   </node>
 
   <!-- Camera driver setup -->
-  <include file="$(find up1_hardware)/launch/usb_cam.launch" />
+  <!--include file="$(find up1_hardware)/launch/usb_cam.launch" -->
 </launch>
