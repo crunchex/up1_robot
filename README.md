@@ -9,4 +9,4 @@ Robot ROS packages for the UpDroid UP1-Series, for operating robot hardware.
 
 # Other #
 
- - old_stuff : leftovers from an old way the packages were going to be set up. May still contain useful code. **Remove before public release.**
+ - old_stuff : leftovers from an old way the packages were going to be set up.
